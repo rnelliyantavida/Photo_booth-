@@ -1,109 +1,280 @@
+/* Base Styles for the Newspaper Look */
 body {
+  font-family: 'Playfair Display', serif; /* Classic newspaper font */
+  background-color: #333; /* Dark background for the frame effect */
   margin: 0;
-  background: #e7d3a5;
-  font-family: "Times New Roman", serif;
-}
-
-.container {
-  max-width: 900px;
-  margin: 20px auto;
-  padding: 10px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 #newspaper {
-  background: url("paper-texture.jpg");
-  background-size: cover;
-  padding: 25px;
-  border: 5px solid #222;
-  filter: sepia(30%);
+  width: 900px; /* Fixed width for a newspaper page */
+  min-height: 1200px;
+  padding: 30px;
+  background-color: #f7f1e5; /* Creamy paper color */
+  border: 4px solid #111;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><defs><pattern id="vintagePaper" width="100" height="100" patternUnits="userSpaceOnUse"><rect width="100" height="100" fill="%23f7f1e5"/><rect width="100" height="100" fill="rgba(210, 180, 140, 0.1)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23vintagePaper)"/></svg>');
+  background-repeat: repeat;
+  color: #1a1a1a;
 }
 
+/* Print Button Styling */
 #printBtn {
-  margin-bottom: 15px;
-  padding: 10px 15px;
-  background: #222;
-  color: #fff;
-  cursor: pointer;
-  border: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 1000;
 }
 
+/* Typography and Layout */
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
-.small-title {
-  font-size: 12px;
-  font-weight: bold;
+.header-center {
+  flex-grow: 1;
+}
+
+.header-left, .header-right {
+  width: 25%;
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.small-logo {
+    display: flex;
+    align-items: center;
+    border: 1px solid #1a1a1a;
+    padding: 2px 5px;
+    margin: 5px 0;
+}
+
+.cam-icon {
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+.reuters-icon {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    border: 2px solid #1a1a1a;
+    padding: 2px 4px;
+    line-height: 1;
+    margin-right: 5px;
 }
 
 .main-title {
-  font-size: 48px;
+  font-family: 'Playfair Display', serif;
+  font-size: 60px;
+  text-transform: uppercase;
   margin: 0;
-  letter-spacing: 3px;
+  line-height: 1;
+  letter-spacing: 2px;
 }
 
 .sub-title {
-  margin-top: -5px;
-  font-size: 18px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #1a1a1a;
 }
 
 .header-row {
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #000;
+  border-top: 2px solid #1a1a1a;
+  border-bottom: 2px solid #1a1a1a;
   padding: 5px 0;
-  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.date-center {
+  font-weight: bold;
+}
+
+/* Image and Top Right Content Grid */
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Image takes 2/3, text takes 1/3 */
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.image-column-wrapper {
+    grid-column: span 1; /* Spans 1 column in the 2:1 grid, but the image itself needs to fill two of the main columns */
 }
 
 .image-wrapper {
-  width: 100%;
-  height: auto;
-  margin: 20px 0;
-  border: 3px solid black;
-  overflow: hidden;
   position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10; /* Aspect ratio close to the image in the sample */
+  overflow: hidden;
+  border: 1px solid #1a1a1a;
 }
 
-.image-wrapper img {
+#uploadImage {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
   cursor: pointer;
+  filter: grayscale(100%); /* Vintage Photo Effect */
 }
 
 #fileInput {
   display: none;
 }
 
+.article-right-top {
+    border-left: 1px solid #1a1a1a;
+    padding-left: 15px;
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: justify;
+}
+
+.qr-box {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.qr-code {
+    height: 60px;
+    width: 60px;
+    background-color: #1a1a1a;
+    margin: 0 auto 5px auto;
+    color: white;
+    font-size: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.qr-text {
+    font-size: 10px;
+}
+
+
+/* Main Columns */
 .columns {
-  display: flex;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+  gap: 15px;
+  border-top: 1px solid #1a1a1a;
+  padding-top: 15px;
 }
 
 .column {
-  width: 50%;
-}
-
-.column h3 {
-  margin-bottom: 5px;
-  text-transform: uppercase;
-  font-size: 18px;
-}
-
-.column p {
-  text-align: justify;
-  font-size: 15px;
+  font-size: 12px;
   line-height: 1.4;
+  text-align: justify;
 }
 
-/* Responsive */
-@media (max-width: 700px) {
-  .columns {
-    flex-direction: column;
-  }
-  .column {
-    width: 100%;
-  }
+.column:not(:last-child) {
+  border-right: 1px solid #1a1a1a;
+  padding-right: 15px;
+}
+
+.article-title {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 10px 0 5px 0;
+  border-bottom: 1px solid #1a1a1a;
+  padding-bottom: 2px;
+}
+
+.climate-title {
+    margin-top: 25px;
+}
+
+p {
+  margin: 0 0 10px 0;
+}
+
+p strong {
+  font-weight: 900;
+}
+
+/* Footer Section */
+.vestibulum-box {
+    border: 3px solid #1a1a1a;
+    padding: 5px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.vestibulum-title {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    display: block;
+    border-bottom: 1px solid #1a1a1a;
+    padding-bottom: 2px;
+    margin-bottom: 5px;
+}
+
+.vestibulum-ads {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+.ad-text {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.ad-percent {
+    font-size: 20px;
+    font-weight: 900;
+    color: red;
+    border: 1px solid red;
+    padding: 1px 3px;
+    line-height: 1;
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: none;
+        padding: 0;
+        margin: 0;
+    }
+    #newspaper {
+        width: 100%;
+        min-height: 100vh;
+        box-shadow: none;
+        border: none;
+        background-image: none;
+        background-color: white;
+    }
+    #printBtn {
+        display: none;
+    }
 }

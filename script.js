@@ -1,28 +1,26 @@
-const img = document.getElementById("uploadImage");
-const fileInput = document.getElementById("fileInput");
-const printBtn = document.getElementById("printBtn");
+document.addEventListener("DOMContentLoaded", () => {
+  const uploadImage = document.getElementById("uploadImage");
+  const fileInput = document.getElementById("fileInput");
+  const printBtn = document.getElementById("printBtn");
 
-// Clicking the image opens file chooser (camera + gallery)
-img.addEventListener("click", () => {
-    fileInput.removeAttribute("capture"); // forces gallery + camera options
+  // Handle Image Upload
+  uploadImage.addEventListener("click", () => {
     fileInput.click();
-});
+  });
 
-// Load chosen image
-fileInput.addEventListener("change", (event) => {
+  fileInput.addEventListener("change", (event) => {
     const file = event.target.files[0];
-    if (!file) return;
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        uploadImage.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  });
 
-    img.src = URL.createObjectURL(file);
-});
-
-// Print only the newspaper
-printBtn.addEventListener("click", () => {
-    const printContents = document.getElementById("newspaper").innerHTML;
-    const originalContents = document.body.innerHTML;
-
-    document.body.innerHTML = printContents;
+  // Handle Print Button
+  printBtn.addEventListener("click", () => {
     window.print();
-    document.body.innerHTML = originalContents;
-    location.reload();
+  });
 });

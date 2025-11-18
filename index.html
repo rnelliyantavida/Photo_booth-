@@ -4,229 +4,191 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Retro Newspaper</title>
-
-    <style>
-      body {
-        margin: 0;
-        background: #e9e2cf;
-        font-family: "Times New Roman", serif;
-        display: flex;
-        justify-content: center;
-        padding: 40px;
-      }
-
-      #printBtn {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: #222;
-        color: #fff;
-        padding: 10px 18px;
-        border: none;
-        cursor: pointer;
-        font-size: 16px;
-      }
-
-      .paper {
-        width: 820px;
-        background: #f0e3c0;
-        border: 3px solid #000;
-        padding: 25px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-        position: relative;
-      }
-
-      /* TOP CORNER BOXES DRAWN WITH CSS */
-      .corner-box {
-        position: absolute;
-        top: 25px;
-        width: 150px;
-        height: 150px;
-        border: 2px solid #000;
-        padding: 8px;
-        font-size: 12px;
-        text-align: center;
-        font-weight: bold;
-      }
-
-      #leftBox {
-        left: 25px;
-      }
-
-      #rightBox {
-        right: 25px;
-      }
-
-      .header {
-        text-align: center;
-        font-size: 58px;
-        font-weight: bold;
-        letter-spacing: 4px;
-        margin-bottom: 5px;
-        margin-top: 80px;
-        text-transform: uppercase;
-      }
-
-      .subheader {
-        text-align: center;
-        font-size: 26px;
-        margin-bottom: 15px;
-      }
-
-      .double-line {
-        border-bottom: 3px solid black;
-        margin-bottom: 3px;
-      }
-
-      .thin-line {
-        border-bottom: 1px solid black;
-        margin-bottom: 12px;
-      }
-
-      .top-strip {
-        display: flex;
-        justify-content: space-between;
-        font-size: 16px;
-        border-top: 2px solid black;
-        border-bottom: 2px solid black;
-        padding: 8px 0;
-        margin-bottom: 20px;
-      }
-
-      .photo-panel {
-        width: 100%;
-        height: 380px;
-        margin-bottom: 25px;
-        border: 2px solid #000;
-      }
-
-      .photo {
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.05);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 20px;
-        cursor: pointer;
-        text-align: center;
-      }
-
-      /* TRIPLE COLUMNS */
-      .columns {
-        column-count: 3;
-        column-gap: 25px;
-        font-size: 14.5px;
-        line-height: 1.25;
-      }
-
-      .columns h2 {
-        font-size: 16px;
-        margin-top: 0;
-        font-weight: bold;
-        text-transform: uppercase;
-      }
-
-      @media print {
-        #printBtn {
-          display: none;
-        }
-        body {
-          background: white;
-        }
-        .paper {
-          box-shadow: none;
-          border: none;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   </head>
-
   <body>
-    <button id="printBtn">Print</button>
+    <div class="container">
+      <button id="printBtn">Print</button>
 
-    <div class="paper" id="newspaper">
-      <!-- TOP LEFT BOX -->
-      <div class="corner-box" id="leftBox">
-        National Geographic<br />
-        Magazine<br /><br />
-        📷 Camera Dept.
-      </div>
+      <div id="newspaper">
+        <div class="header">
+          <div class="header-left">
+            <div class="small-logo">
+              <span class="small-title">NATIONAL GEOGRAPHIC MAGAZINE</span>
+              <span class="cam-icon">📷</span>
+            </div>
+          </div>
+          <div class="header-center">
+            <h1 class="main-title">RETRO EXPRESS</h1>
+            <h2 class="sub-title">Newspaper</h2>
+          </div>
+          <div class="header-right">
+            <div class="small-logo">
+              <div class="reuters-icon">R&A</div>
+              <span class="small-title right-title">REUTERS ARTS</span>
+            </div>
+          </div>
+        </div>
 
-      <!-- TOP RIGHT BOX -->
-      <div class="corner-box" id="rightBox">
-        Progress Apparatus<br />
-        Office<br /><br />
-        Est. 1921
-      </div>
+        <div class="header-row">
+          <span class="issue-info">NO. 30</span>
+          <span class="issue-info date-center">THURSDAY, NOVEMBER 11TH, 1945</span>
+          <span class="issue-info price-right">PRICE 3 CENTS</span>
+        </div>
 
-      <!-- HEADER -->
-      <div class="header">RETRO EXPRESS</div>
-      <div class="subheader">Newspaper</div>
+        <div class="content-grid">
+          <div class="image-column-wrapper">
+            <div class="image-wrapper">
+              <img id="uploadImage" src="placeholder.png" alt="Tap to upload" />
+              <input
+                type="file"
+                id="fileInput"
+                accept="image/*"
+                capture="environment"
+              />
+            </div>
+          </div>
+          
+          <div class="article-right-top">
+            <p>
+              **Praeter technologicae** suae
+              successum, Bengaluru etiam est civitas
+              plena cultura et diversitate. Multi
+              populi hic habitant, loquentes
+              linguas vivunt, creantes atmosphaeram
+              vere cosmopolitam. In urbe,
+              nominata pro suis hortis et parcis,
+              musici, et theatrales frequentiae
+              sunt. Lacus urbs est notus ob hortos
+              suos pulcherrimos, ut Cubbon Park,
+              qui hominibus tranquillitatem
+              praebent.
+            </p>
+            <div class="qr-box">
+              <div class="qr-code"></div>
+              <div class="qr-text">#rero_picture@qr</div>
+            </div>
+          </div>
+        </div>
 
-      <div class="double-line"></div>
-      <div class="thin-line"></div>
+        <div class="columns">
+          <div class="column">
+            <h3 class="article-title">BENGALURU: BENDA KALURA</h3>
+            <p>
+              Bengaluru etiam notum ut Bangalore, est urbs maxima in regione
+              Karnataka. Haec urbs, plena **historia** et cultu vibrans, est centrum
+              technologiae et commercii Indiae. Numerus incolarum Bengaluru
+              est inter **10 et 12 miliones** aestimatur, et urbs est nota
+              propter **temperamentum** frigidum in urbem modernam.
+            </p>
+            <p>
+              Bengaluru centrum informationis Indiae est. Multae societates
+              internationales sicut Infosys, TCS, IBM, et Google ibi sedem
+              habent. Ergo, Bengaluru saepe vocatur **"Silicon Valley"** Indiae.
+              Similis est famoso Silicon Valley in California.
+            </p>
+            <div class="vestibulum-box">
+                <span class="vestibulum-title">VESTIBULUM</span>
+                <div class="vestibulum-ads">
+                    <span class="ad-text">INDIA</span>
+                    <span class="ad-text">NOW</span>
+                    <span class="ad-percent">50%</span>
+                </div>
+            </div>
+          </div>
 
-      <div class="top-strip">
-        <span>No. 10</span>
-        <span>Thursday, November 7th, 1945</span>
-        <span>Price 3 Cents</span>
-      </div>
+          <div class="column">
+            <p>
+              Praeter technologicae
+              successum, Bengaluru etiam est
+              urbs **plena cultura** et
+              diversitate. Multi populi
+              hic habitant, loquentes
+              linguas vivunt, creantes
+              atmosphaeram vere
+              cosmopolitam. In urbe,
+              nominata pro suis hortis
+              et parcis, musici, et
+              theatrales frequentiae sunt.
+              Lacus urbs est notus ob
+              hortos suos pulcherrimos,
+              ut Cubbon Park,
+              qui hominibus tranquillitatem
+              praebent.
+            </p>
+            <h3 class="article-title climate-title">Clima et Geographia</h3>
+            <p>
+              Clima Bengaluru est aliud aspectum quem multi ad-
+              mirantur. Nisi veris et aestate, aer temperatus est
+              frigidus, cum temperaturis inter 20 et 30 gradus
+              Celsius. Quod est bonum utique unicum in India, et
+              hanc urbem iucundam et hospitale efficit.
+            </p>
+            <h3 class="article-title">BENGALURU: URBS TECHNOLOGICA INDIAE</h3>
+            <p>
+              Nomen urbis in Indiam
+              natum factum est prop-
+              ter altam progressum in
+              industria digitali et sci-
+              entiarum. Postquam so-
+              cietates internationales
+              ut Microsoft, Google, et
+              Apple suas sedes ibi pos-
+              uerunt.
+            </p>
+            <p>
+              Nunc Bengaluru non
+              solum urbs technologiae
+              est. Historiam longam et
+              culturam divitem habet.
+              Architectura historica
+              sicut templum Vidhana
+              Soudha adest.
+            </p>
+          </div>
 
-      <!-- IMAGE UPLOADER -->
-      <div class="photo-panel">
-        <input
-          type="file"
-          id="imageInput"
-          accept="image/*"
-          style="display: none"
-        />
-        <div class="photo" id="photoDisplay">Tap here to add photo</div>
-      </div>
-
-      <!-- CONTENT -->
-      <div class="columns">
-        <h2>Bengaluru: Benda Kalura</h2>
-        <p>
-          Bengaluru, etiam notum ut Bangalore, est urbs maxima in regione
-          Karnataka. Haec urbs plena est technologia, historia, ac cultura
-          vibrante.
-        </p>
-
-        <h2>Clima et Geographia</h2>
-        <p>Clima Bengaluru est mite, cum temperaturis stabilibus per annum.</p>
-
-        <h2>Bengaluru: urbs technologica Indiae</h2>
-        <p>
-          Bengaluru vocatur Silicon Valley Indiae propter societates
-          technologiae internationales ibi positas.
-        </p>
+          <div class="column">
+            <p>
+              Sic, Bengaluru non
+              solum urbs technologi-
+              ae, sed etiam urbs quae
+              historiam et culturam
+              celebrat. Ubi modernitas
+              et traditio conveniunt.
+            </p>
+            <p>
+              Maecenas id purus nec
+              neque sagittis semper
+              eget a massa. Ut ac lectus
+              eget risus condimentum
+              mattis. Fusce
+              dignissim
+              dolor sed
+              porttitor
+              dictum. Phasellus
+              ultricies scelerisque
+              metus vitae tristique.
+              Proin non nisi congue,
+              venenatis lectus non,
+              semper lectus. Phasellus
+              nec
+              vitae
+              semper lorem
+              lacus.
+              Maecenas
+              iaculis
+              urna eget
+              felis
+              pretium
+              ornare.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
-
-    <script>
-      const input = document.getElementById("imageInput");
-      const display = document.getElementById("photoDisplay");
-
-      display.addEventListener("click", () => input.click());
-
-      input.addEventListener("change", (e) => {
-        const file = e.target.files[0];
-        if (!file) return;
-
-        const reader = new FileReader();
-        reader.onload = (ev) => {
-          display.style.backgroundImage = `url(${ev.target.result})`;
-          display.style.backgroundSize = "cover";
-          display.style.backgroundPosition = "center";
-          display.textContent = "";
-        };
-        reader.readAsDataURL(file);
-      });
-
-      document.getElementById("printBtn").addEventListener("click", () => {
-        window.print();
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
