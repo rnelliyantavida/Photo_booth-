@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const uploadImage = document.getElementById("uploadImage");
   const fileInput = document.getElementById("fileInput");
   const printBtn = document.getElementById("printBtn");
+    const dateElement = document.getElementById("current-date"); // Added
+
 
   // Handle Image Upload
   uploadImage.addEventListener("click", () => {
@@ -43,6 +45,5 @@ document.addEventListener("DOMContentLoaded", () => {
     .toUpperCase(); // Optional: uppercase to match style
 
   dateElement.textContent = formattedDate;
-});
 
 });
