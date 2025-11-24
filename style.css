@@ -1,6 +1,6 @@
 /* Base Styles for the Newspaper Look */
 body {
-  font-family: "Playfair Display", serif; /* Classic newspaper font */
+  font-family: "Times New Roman", Georgia, "Garamond", serif;
   background-color: #333; /* Dark background for the frame effect */
   margin: 0;
   padding: 20px;
