@@ -37,13 +37,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const today = new Date();
-  const options = { weekday: "long", month: "long", year: "numeric" };
+  const weekdays = ["SUNDAY","MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"];
+  const months = ["JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"];
+
+  const weekday = weekdays[today.getDay()];
+  const month = months[today.getMonth()];
   const day = today.getDate();
   const ordinal = getOrdinal(day);
-  const formattedDate = today.toLocaleDateString("en-US", options)
-    .replace(today.getDate(), day + ordinal)
-    .toUpperCase(); // Optional: uppercase to match style
+  const year = today.getFullYear();
 
-  dateElement.textContent = formattedDate;
+  dateElement.textContent = `${weekday}, ${month} ${day}${ordinal}, ${year}`;
+
 
 });
