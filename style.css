@@ -1,6 +1,6 @@
 /* Base Styles for the Newspaper Look */
 body {
-  font-family: "Merriweather", Georgia, serif;
+  font-family: "SimSun", "Songti SC", "Merriweather", Georgia, serif;
   background-color: #333; /* Dark background for the frame effect */
   margin: 0;
   padding: 20px;
@@ -8,6 +8,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  font-weight: bold;
 }
 
 #newspaper {
@@ -83,12 +84,13 @@ body {
 }
 
 .main-title {
-  font-family: "Playfair Display", serif;
-  font-size: 55px; /* Reduced size */
+  font-family: "MedievalSharp", serif;
+  font-size: 38px; /* Reduced size */
   text-transform: uppercase;
   margin: 0;
   line-height: 1;
   letter-spacing: 2px;
+  font-weight: bold;
 }
 
 .sub-title {
@@ -270,7 +272,7 @@ p strong {
   }
   #newspaper {
     width: 100%;
-    min-height: 100vh;
+    min-height: 100px;
     box-shadow: none;
     border: none;
     background-image: none;
@@ -280,4 +282,5 @@ p strong {
   #printBtn {
     display: none;
   }
+
 }
