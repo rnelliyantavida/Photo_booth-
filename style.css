@@ -272,7 +272,7 @@ p strong {
   }
   #newspaper {
     width: 100%;
-    min-height: 100px;
+    min-height: 100vh;
     box-shadow: none;
     border: none;
     background-image: none;
