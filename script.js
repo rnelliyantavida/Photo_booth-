@@ -25,28 +25,11 @@ document.addEventListener("DOMContentLoaded", () => {
   printBtn.addEventListener("click", () => {
     window.print();
   });
-  // ----- Display Current Date -----
-  function getOrdinal(n) {
-    if (n > 3 && n < 21) return "th";
-    switch (n % 10) {
-      case 1: return "st";
-      case 2: return "nd";
-      case 3: return "rd";
-      default: return "th";
-    }
-  }
+ 
 
-  const today = new Date();
-  const weekdays = ["SUNDAY","MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"];
-  const months = ["JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"];
+  
 
-  const weekday = weekdays[today.getDay()];
-  const month = months[today.getMonth()];
-  const day = today.getDate();
-  const ordinal = getOrdinal(day);
-  const year = today.getFullYear();
 
-  dateElement.textContent = `${weekday}, ${month} ${day}${ordinal}, ${year}`;
 
 
 });
