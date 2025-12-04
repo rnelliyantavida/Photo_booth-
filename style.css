@@ -294,34 +294,85 @@ p strong {
 }
 
 /* Print Styles */
-@media print {
-   body {
-    background: none !important;
-    padding: 0;
-    margin: 0;
 
-    /* Force darker text in print */
+  /* Print Styles Optimized for Single A4 Page */
+@media print {
+  /* Remove body background, margin, padding */
+  body {
+    background: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
     font-family: "Arial Black", "Roboto Condensed", Arial, sans-serif !important;
     font-weight: 900 !important;
-
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
+
+  /* Newspaper container adjustments */
   #newspaper {
-    width: 100%;
-    width: 750px;
-    box-shadow: none;
-    border: none;
-    background-image: none;
-    background-color: white;
-    
+    width: 100% !important;
+    max-width: 750px; /* fit A4 width */
+    min-height: auto !important; /* remove fixed height */
+    padding: 10mm !important; /* small print padding */
+    background-color: white !important;
+    border: none !important;
+    box-shadow: none !important;
+    background-image: none !important;
+    color: #000;
+    page-break-after: auto;
+    page-break-before: auto;
   }
+
+  /* Hide print button */
   #printBtn {
-    display: none;
+    display: none !important;
   }
+
+  /* Avoid breaking columns or grids */
+  .columns, .content-grid, #newspaper {
+    page-break-inside: avoid !important;
+  }
+
+  /* Resize images for print */
+  #uploadImage, #zubara-img, #insta-qr, #camera-img, #qnd-img {
+    max-width: 100% !important;
+    max-height: 200px !important; /* adjust as needed */
+    height: auto !important;
+    width: auto !important;
+  }
+
+  /* Typography adjustments */
+  .main-title {
+    font-size: 48px !important; /* smaller for print */
+  }
+  .sub-title {
+    font-size: 28px !important;
+  }
+  .article-title {
+    font-size: 18px !important;
+  }
+  p {
+    font-size: 10px !important;
+    line-height: 1.3 !important;
+    margin: 0 0 6px 0 !important;
+  }
+
+  /* Header row adjustments */
+  .header-row {
+    font-size: 10px !important;
+    padding: 4px !important;
+  }
+
+  /* Reduce column gaps */
+  .columns, .content-grid {
+    gap: 5px !important;
+  }
+
+  /* Optional: ensure page size and margin */
   @page {
-  size: A4;      /* or letter */
-  margin: 10mm;  /* small margin */
+    size: A4;
+    margin: 10mm;
+  }
 }
 
 }
