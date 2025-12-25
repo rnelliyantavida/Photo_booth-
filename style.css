@@ -354,7 +354,7 @@ p strong {
     margin-bottom: 6px !important;
   }
     .article-title {
-    text-align: left !important;
+    text-align: center; !important;
     letter-spacing: normal !important;
     word-spacing: normal !important;
     white-space: normal !important;
