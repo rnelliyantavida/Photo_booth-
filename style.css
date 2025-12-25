@@ -287,9 +287,9 @@ p strong {
   padding: 0px 10px;
   border-radius: 30px;
 }
-#art-history-img{
-  width: 306px;
-  object-fit: cover;
+#zubara-img{
+  height: 100px;
+  width: 180px;
 }
 
 /* Print Styles */
@@ -311,7 +311,7 @@ p strong {
     padding: 0 !important;
     background: none !important;
 
-     font-family: "Chiller", cursive, sans-serif;
+    font-family: "Arial Black", "Roboto Condensed", Arial, sans-serif !important;
     font-weight: 900 !important;
 
     -webkit-print-color-adjust: exact !important;
