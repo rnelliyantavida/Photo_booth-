@@ -210,6 +210,15 @@ body {
   padding-bottom: 1px;
   text-align: center;
 }
+.article-title1{
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 12px; /* Reduced size */
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0px 0 4px 0;
+  padding-bottom: 1px;
+  text-align: center;
+}
 
 .climate-title {
   margin-top: 20px;
@@ -290,6 +299,10 @@ p strong {
 #zubara-img{
   height: 100px;
   width: 180px;
+}
+#sport-span{
+  font-size: 16px;
+  letter-spacing: -1px;
 }
 
 /* Print Styles */
