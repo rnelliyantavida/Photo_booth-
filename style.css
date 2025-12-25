@@ -188,8 +188,7 @@ body {
 .columns {
   display: grid;
   grid-template-columns: 1fr 1fr 2fr;
-  gap: 12px; /* Reduced gap */
-  padding-top: 12px;
+  gap: 12px; 
 }
 
 .column {
