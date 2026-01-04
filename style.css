@@ -37,6 +37,18 @@ body {
   font-size: 16px;
   z-index: 1000;
 }
+#logoutBtn {
+  position: fixed;
+  top: 20px;
+  right: 75px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 1000;
+}
 
 /* Typography and Layout */
 .header {
@@ -352,6 +364,9 @@ p strong {
 
   /* Hide print button */
   #printBtn {
+    display: none !important;
+  }
+  #logoutBtn {
     display: none !important;
   }
 
