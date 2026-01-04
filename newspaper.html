@@ -17,6 +17,8 @@
   <body>
     <div class="container">
       <button id="printBtn">Print</button>
+      <button id="logoutBtn" onclick="logout()">Logout</button>
+
 
       <div id="newspaper">
         <div class="header">
@@ -78,7 +80,7 @@
 Qatar is not just about its capital city Doha, and the way it’s held on to its heritage even while moving towards the contemporary. It’s not just about modern structures and high rise buildings; it’s not just about museums and beaches; it’s not just about man made islands or purpose built hills. There’s a lot more to this small, but happening, country. With a long pristine and beautiful coastal line and plenty of sunshine all year round, Qatar is a destination where you can have it all.
             </p>
             <p>
-                <img id="zubara-img" src="zubara.jpeg" alt="" />
+              <img id="zubara-img" src="zubara.jpeg" alt="" />
               <!-- <img id="zubara-img" src="souq-vaqif.jpeg" alt="" /> -->
 
             </p>
@@ -104,7 +106,7 @@ Qatar is not just about its capital city Doha, and the way it’s held on to its
         </div>
       </div>
     </div>
-    
+    <script src="script.js"></script>
 <script>
   // Redirect to login if not logged in
   if(localStorage.getItem("loggedIn") !== "true") {
