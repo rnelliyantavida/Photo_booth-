@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doha Newspaper</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+    <div class="container">
+      <button id="printBtn">Print</button>
+
+      <div id="newspaper">
+        <div class="header">
+          <div class="header-left">
+              <img id="camera-img" src="vintage_camera.png" alt="Tap to upload" />
+          </div>
+          <div class="header-center">
+            <h1 class="main-title">DOHA EXPRESS</h1>
+            <h2 class="sub-title">Newspaper</h2>
+          </div>
+          <div class="header-right">
+            <img id="qnd-img" src="qatar-national-day.png"/>
+          </div>
+        </div>
+        <hr class="first-line">
+        <hr class="second-line">
+
+        <div class="header-row">
+          <span class="issue-info">NO. 30</span>
+          <span class="issue-info date-center">FRIDAY, DECEMBER 18TH, 1964</span>
+          
+          <span class="issue-info price-right">PRICE 3 GULF RUPEE</span>
+        </div>
+
+        <div class="content-grid">
+          <div class="image-column-wrapper">
+            <div class="image-wrapper">
+              <img id="uploadImage" src="dummy.jpg" alt="Tap to upload" />
+              <input
+                type="file"
+                id="fileInput"
+                accept="image/*, application/pdf"
+                capture=""
+              />
+            </div>
+          </div>
+
+          <div class="article-right-top">
+            <p style="font-weight: bold;">
+              Apart from Doha, Qatar is dotted by other small cities and towns, and while some are port towns, others are more significant as they represent the oil and gas industry which thrives in these areas.Visitors will discover dilapidated and abandoned villages, archaeological sites that give a little peak into the area’s history.
+            </p>
+            <div class="qr-box">
+              <img id="insta-qr" src="insta-qr.jpeg"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <h3 class="article-title">THE HISTORY OF QATAR</h3>
+            <p style="font-weight: bold;">
+              Qatar – pronounced ‘kuh-TAR’–is located on the Arabian Peninsula, jutting into the Arabian Gulf. The first evidence of human settlement dates to the 6th millennium BCE. For centuries, Qatar was largely populated by Bedouin tribes and a few fishing villages, shaped by the rule of Arab tribes, Portuguese explorers, Ottoman leaders and the esteemed al-Thani family, whose leadership has significantly influenced the nation's heritage. Qatar’s destiny changed when oil was first discovered in the Dukhan Field in 1940.
+            </p>
+          </div>
+
+          <div class="column">
+            <h6 class="article-title1">Discovering Qatar beyond Doha</h6>
+            <p>
+Qatar is not just about its capital city Doha, and the way it’s held on to its heritage even while moving towards the contemporary. It’s not just about modern structures and high rise buildings; it’s not just about museums and beaches; it’s not just about man made islands or purpose built hills. There’s a lot more to this small, but happening, country. With a long pristine and beautiful coastal line and plenty of sunshine all year round, Qatar is a destination where you can have it all.
+            </p>
+            <p>
+              <!-- <img id="zubara-img" src="zubara.jpeg" alt="" /> -->
+              <img id="zubara-img" src="souq-vaqif.jpeg" alt="" />
+
+            </p>
+            
+            
+          </div>
+
+          <div class="column">
+            <p>
+<span id="sport-span">Sport in Qatar:</span> Qatar is a passionate sporting nation, ranging from one of the oldest sports known to man (falconry) to international spectacles like the FIFA World Cup, the F1® Qatar Grand Prix and the Asian Games.
+            </p>
+            <div class="climate-div">
+              <h3 class="article-title">Climate & Geography</h3>
+              <p>
+               Qatar moves forward with steady confidence, shaping its future with purpose and ambition. In Doha, modern design blends effortlessly with cultural elegance, creating a city full of vibrant energy. New developments rise with precision, while traditions remain strong at the nation’s core. Beautiful public spaces, refined architecture, and innovative projects all contribute to a landscape that continues to grow with grace. Qatar’s progress is steady, balanced, and guided by a clear vision of excellence.
+              </p>
+            </div>
+            <h3 class="article-title">Traditions of Qatar</h3>
+            <p>
+              The people of Qatar take great pride in their rich tapestry of traditions, from the central role of the majlis and the distinctive aroma of oud, to significant religious holidays and the art of Arabic coffee.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+<script>
+  // Redirect to login if not logged in
+  if(localStorage.getItem("loggedIn") !== "true") {
+    window.location.href = "index.html";
+  }
+</script>
+  </body>
+</html>

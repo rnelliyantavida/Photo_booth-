@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <style>
+    body {
+      font-family: "Georgia", "Times New Roman", serif;
+      background-color: #fdfcf0;
+      color: #222;
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top row: Welcome + Logout */
+    .top-row {
+      display: flex;
+      justify-content: space-between; /* welcome left, logout right */
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+    .btn-logout {
+      background-color: #000;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    .btn-logout:hover {
+      background-color: #444;
+    }
+
+    /* Themes section (left-aligned) */
+    .themes {
+      display: flex;
+      flex-direction: column; /* left column */
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .theme-card {
+      background-color: #000;
+      color: #fff;
+      padding: 15px 25px;
+      font-size: 1rem;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .theme-card:hover {
+      background-color: #444;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Row: Welcome + Logout -->
+<div class="top-row">
+  <h1>Welcome to Dashboard!</h1>
+  <button class="btn-logout" onclick="logout()">Logout</button>
+</div>
+
+<!-- Themes Section -->
+<div class="themes">
+  <a class="theme-card" href="newspaper.html">Newspaper</a>
+  <!-- Add more themes later -->
+</div>
+
+<script>
+  // Redirect to login if not logged in
+  if(localStorage.getItem("loggedIn") !== "true") {
+    window.location.href = "index.html";
+  }
+
+  function logout() {
+    localStorage.removeItem("loggedIn");
+    window.location.href = "index.html";
+  }
+</script>
+
+</body>
+</html>
