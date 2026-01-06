@@ -113,8 +113,9 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       
       pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
-      const pdfBlobUrl = pdf.output("bloburl");
-      window.open(pdfBlobUrl, "_blank");
+      // const pdfBlobUrl = pdf.output("bloburl");
+      // window.open(pdfBlobUrl, "_blank");
+       pdf.save("doha-newspaper.pdf");
 
     } catch (err) {
       console.error("PDF Generation Error:", err);
