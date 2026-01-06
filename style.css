@@ -37,10 +37,24 @@ body {
   font-size: 16px;
   z-index: 1000;
 }
+
 #logoutBtn {
   position: fixed;
   top: 20px;
   right: 75px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 1000;
+}
+
+#downloadPdfBtn {
+  position: fixed;
+  top: 20px;
+  right: 160px;
   padding: 10px 20px;
   background-color: #333;
   color: white;
@@ -160,7 +174,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Default image covers box */
   display: block;
   transform: translate(0,0);
 }
@@ -317,6 +331,88 @@ p strong {
   letter-spacing: -1px;
 }
 
+/* Mobile Responsive Styles */
+@media screen and (max-width: 850px) {
+  body {
+    padding: 10px;
+    display: block; /* Remove flex to simplify scrolling */
+    height: auto;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    overflow-x: hidden; /* Disable scroll */
+  }
+
+  #newspaper {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: auto;
+    height: auto;
+    box-sizing: border-box;
+    margin: 10px auto;
+    overflow: hidden;
+  }
+
+  .main-title {
+    font-size: 10vw; /* Responsive font size */
+  }
+
+  .sub-title {
+    font-size: 6vw;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr; /* Stack image and text */
+  }
+
+  .image-column-wrapper {
+    margin-bottom: 15px;
+  }
+
+  /* Make image responsive but maintain aspect ratio */
+  .image-wrapper {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10; /* Maintain the same shape as desktop */
+    position: relative;
+    display: block;
+    overflow: hidden;
+  }
+
+  .image-wrapper #uploadImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the proportionally scaled box */
+  }
+
+  .columns {
+    grid-template-columns: 1fr; /* Stack columns vertically */
+  }
+
+  .column:not(:last-child) {
+    padding-right: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+  }
+  
+  #printBtn, #logoutBtn, #downloadPdfBtn {
+      position: static !important;
+      margin: 5px;
+      display: inline-block !important;
+      z-index: 1001; /* Ensure on top */
+  }
+}
+
 /* Print Styles */
 /* ============================= */
 /* FINAL PRINT CSS – ONE PAGE A4 */
@@ -327,50 +423,57 @@ p strong {
   /* Page setup */
   @page {
     size: A4;
-    margin: 3mm;
+    margin: 5mm;
   }
 
-  /* Reset body */
-  body {
+  /* Reset html and body */
+  html, body {
     margin: 0 !important;
     padding: 0 !important;
     background: none !important;
+    height: auto !important;
+    min-height: 0 !important;
+    width: 100% !important;
+    display: block !important;
+    overflow: visible !important;
+  }
 
+  body {
     font-family: "Arial Black", "Roboto Condensed", Arial, sans-serif !important;
     font-weight: 900 !important;
-
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
 
+  /* Reset wrapper container */
+  .container {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    width: 100% !important;
+  }
+
   /* Main newspaper container */
   #newspaper {
-    width: 750px !important;
-    max-width: 750px !important;
-
+    width: 100% !important;
+    max-width: 100% !important;
     min-height: auto !important;
     height: auto !important;
-
-    padding: 20px !important;
-
+    padding: 0 !important; /* Remove padding to save space */
+    margin: 0 !important;
     box-shadow: none !important;
     border: none !important;
     background: white !important;
-
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-    overflow: hidden !important;
+    /* Removed page-break-inside: avoid to prevent forcing new page */
+    overflow: visible !important;
   }
 
-  /* Hide print button */
-  #printBtn {
-    display: none !important;
-  }
-   #logoutBtn {
+  /* Hide buttons */
+  #printBtn, #logoutBtn, #downloadPdfBtn {
     display: none !important;
   }
 
-  /* Prevent column breaks */
+  /* Prevent column breaks inside components */
   .content-grid,
   .columns,
   .column {
@@ -378,16 +481,61 @@ p strong {
     break-inside: avoid !important;
   }
 
+  /* Adjust typography for print */
   p {
-    margin-bottom: 6px !important;
+    margin-bottom: 4px !important;
+    font-size: 10pt !important;
+    line-height: 1.2 !important;
   }
-    .article-title {
-    text-align: center; !important;
+
+  .article-title {
+    text-align: center !important;
     letter-spacing: normal !important;
     word-spacing: normal !important;
     white-space: normal !important;
     justify-content: flex-start !important;
     text-transform: uppercase;
+    font-size: 16pt !important;
+    margin-bottom: 2px !important;
+  }
+
+  .main-title {
+    font-size: 48pt !important;
+  }
+  
+  .sub-title {
+    font-size: 24pt !important;
+  }
+
+  /* Fix images */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  #camera-img, #qnd-img {
+    width: 100% !important; /* Prevent overflow */
+    max-width: 100% !important;
+  }
+
+  .header-left, .header-right {
+    width: 15% !important; /* Adjust width to fit images better */
+  }
+
+  .image-wrapper {
+    height: 390px !important; /* Maintain fixed height */
+    display: block !important;
+    border: 1px solid #1a1a1a !important;
+    position: relative !important;
+  }
+
+  #uploadImage {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    /* object-fit and background controlled by JS/CSS default */
   }
 }
 
