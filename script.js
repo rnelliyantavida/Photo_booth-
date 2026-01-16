@@ -47,21 +47,41 @@ document.addEventListener("DOMContentLoaded", () => {
       container.style.margin = '0';
       container.style.padding = '0';
       
-      // Apply strict styles to the clone
+      // Apply strict styles to the clone to mimic the "Print" version
       clone.style.margin = '0';
       clone.style.transform = 'none';
+      
+      // Match the "Print" CSS: width 750px + padding 20px approx equals A4 width
+      // We use border-box with 794px width and 20px padding to simulate this
       clone.style.width = '794px';
       clone.style.maxWidth = '794px';
+      clone.style.height = '1122px'; 
       clone.style.minHeight = '1122px';
-      clone.style.height = 'auto';
+      clone.style.maxHeight = '1122px';
+      
+      clone.style.padding = '20px'; // Add back some padding for aesthetics
       clone.style.boxSizing = 'border-box';
-      // Ensure no border/shadow affects dimensions if they are outside box-sizing
+      clone.style.overflow = 'hidden';
+      
+      // Use Flexbox to distribute content and fill vertical space
+      clone.style.display = 'flex';
+      clone.style.flexDirection = 'column';
+      clone.style.justifyContent = 'space-between'; // Push content to edges
+      
       clone.style.border = 'none'; 
       clone.style.boxShadow = 'none';
       
-      // FIX: Remove background image (SVG data URI) which often causes "Operation is insecure" on iOS
+      // FIX: Remove background image and set to white (like Print)
       clone.style.backgroundImage = 'none';
-      clone.style.backgroundColor = '#f7f1e5'; // Keep the paper color
+      clone.style.backgroundColor = '#ffffff';
+
+      // FIX: Prevent image stretching in PDF
+      const cloneImg = clone.querySelector('#uploadImage');
+      if (cloneImg) {
+        cloneImg.style.objectFit = 'cover';
+        cloneImg.style.width = '100%';
+        cloneImg.style.height = '100%';
+      }
 
       container.appendChild(clone);
       document.body.appendChild(container);
@@ -72,13 +92,10 @@ document.addEventListener("DOMContentLoaded", () => {
         image:        { type: 'jpeg', quality: 0.98 },
         html2canvas:  { 
           scale: 2, 
-          useCORS: false, // Disable CORS to prevent "Operation is insecure" on iOS
+          useCORS: false,
           scrollY: 0,
           scrollX: 0,
-          windowWidth: 794,
-          width: 794,
-          x: 0,
-          y: 0
+          // Let html2canvas determine dimensions from the element
         },
         jsPDF:        { unit: 'px', format: [794, 1122], orientation: 'portrait' }
       };
