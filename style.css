@@ -306,17 +306,11 @@ p strong {
   width: 180%;
   padding-right: 10px;
 }
-.first-line{
-  margin: 0px;
-  border: 0;
+.double-line {
   border-top: 1px solid #1a1a1a;
-  height: 0;
-}
-.second-line{
-  border: 0;
-  background-color: black;
-  height: 4px;
-  margin-top: 2px;
+  border-bottom: 4px solid #1a1a1a;
+  height: 3px;
+  margin: 5px 0;
 }
 #insta-qr{
   height: 150px;
@@ -400,12 +394,12 @@ p strong {
     margin-bottom: 6px !important;
   }
     .article-title {
-    text-align: center; !important;
+    text-align: center !important;
     letter-spacing: normal !important;
     word-spacing: normal !important;
     white-space: normal !important;
     justify-content: flex-start !important;
-    text-transform: uppercase;
+    text-transform: uppercase !important;
   }
 }
 
